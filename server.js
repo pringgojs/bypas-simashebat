@@ -54,7 +54,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-  return res.status(200).json({ success: "working well!" });
+  return res.status(200).json({ success: "expressjs working well!" });
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
