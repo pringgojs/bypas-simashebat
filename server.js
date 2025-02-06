@@ -53,6 +53,9 @@ app.post("/login", async (req, res) => {
   return res.status(200).json(response);
 });
 
+app.post("/", async (req, res) => {
+  return res.status(200).json({ success: "working well!" });
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
