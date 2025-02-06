@@ -13,8 +13,6 @@ services:
       - NODE_ENV=development
     networks:
       - express-network
-    depends_on:
-      - puppeteer
 
 networks:
   express-network:
