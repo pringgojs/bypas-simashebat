@@ -26,7 +26,7 @@ app.post("/login", async (req, res) => {
   console.log("coockie");
   console.log(cookies.map((c) => `${c.name}=${c.value}`).join("; "));
   // 3️⃣ Buat request ke API login menggunakan cookie yang sudah didapat
-  const response = await page.evaluate(async (cookies) => {
+  const response = await page.evaluate(async (cookies, username, password) => {
     const res = await fetch(
       "https://simashebat.ponorogo.go.id/simple-login-api.php",
       {
@@ -47,8 +47,9 @@ app.post("/login", async (req, res) => {
     return res.json();
   }, cookies);
 
-  console.log(response); // Output JSON dari API login
   await browser.close();
+  console.log(response); // Output JSON dari API login
+  return response;
 });
 
 const PORT = process.env.PORT || 3000;
