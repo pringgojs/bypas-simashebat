@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: baypass-simashebat
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    networks:
+      - express-network
+    depends_on:
+      - puppeteer
+
+networks:
+  express-network:
+    driver: bridge
